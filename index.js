@@ -7,8 +7,10 @@ const cors = require("cors")
 dotenv.config();
 
 // DB connection
+console.log(process.env.ATLAS_DB_CONNECTION_STRING);
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/file_sharing_app")
+  .connect(process.env.ATLAS_DB_CONNECTION_STRING)
   .then(() => console.log("DB connected successfully"))
   .catch((err) => console.log("Error in conecting DB", err));
 
